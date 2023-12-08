@@ -1,8 +1,46 @@
-import React from "react";
+"use client";
+import { useCode } from "@/app/context/codeContext";
 
 const Description = () => {
+  const {
+    settings: {
+      thumbColor,
+      trackColor,
+      scrollbarWidth,
+      scrollbarBorderRadius,
+      thumbBorderWidth,
+      thumbBorderColor,
+    },
+  } = useCode();
+
   return (
-    <section className="col-span-2 mb-5 border-gray-400 border-l-2 border-b-2 px-2 h-[70vh] overflow-y-scroll rounded-md">
+    <section
+      className={`col-span-2 mb-5 px-2 h-[70vh] overflow-y-scroll section scrollbar`}
+    >
+      <style jsx>{`
+        .section {
+          --sb-track-color: ${trackColor};
+          --sb-thumb-color: ${thumbColor};
+          --sb-size: ${scrollbarWidth}px;
+
+          scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+        }
+
+        .section::-webkit-scrollbar {
+          width: var(--sb-size);
+        }
+
+        .section::-webkit-scrollbar-track {
+          background: var(--sb-track-color);
+          border-radius: ${scrollbarBorderRadius}px;
+        }
+
+        .section::-webkit-scrollbar-thumb {
+          background: var(--sb-thumb-color);
+          border-radius: ${scrollbarBorderRadius}px;
+          border: ${thumbBorderWidth}px solid ${thumbBorderColor};
+        }
+      `}</style>
       <h1 className="text-2xl text-gray-200 font-sans font-semibold">
         CSS Scrollbar Selectors
       </h1>

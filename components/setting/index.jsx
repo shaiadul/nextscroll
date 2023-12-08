@@ -1,6 +1,34 @@
+"use client";
+import { useCode } from "@/app/context/codeContext";
 import React from "react";
 
 const SettingBar = () => {
+  const { settings, setSettings } = useCode();
+
+  const handleSettingChange = (name, value) => {
+    // Ensure the value is positive or zero for specific properties
+    let validValue;
+    switch (name) {
+      case "scrollbarWidth":
+      case "scrollbarBorderRadius":
+      case "thumbBorderWidth":
+        validValue = Math.max(0, value);
+        break;
+      default:
+        validValue = value;
+    }
+
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      [name]: validValue,
+    }));
+  };
+  const handleColorChange = (name, color) => {
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      [name]: color,
+    }));
+  };
   return (
     <div>
       <h1 className="text-2xl text-gray-200 font-sans font-semibold">
@@ -8,16 +36,7 @@ const SettingBar = () => {
       </h1>
 
       <div className="py-5 text-gray-400 text-md font-sans">
-        <div className="flex justify-between items-center">
-          <span>Thumb Color</span>
-          <input
-            className="input_style"
-            type="color"
-            name="thumb"
-            id="thumb"
-            defaultValue="#43da86"
-          />
-        </div>
+        {/* Track Color */}
         <div className="flex justify-between items-center my-2">
           <span>Track Color</span>
           <input
@@ -25,48 +44,126 @@ const SettingBar = () => {
             type="color"
             name="track"
             id="track"
-            defaultValue="#23769C"
+            value={settings.trackColor}
+            onChange={(e) => handleColorChange("trackColor", e.target.value)}
+          />
+        </div>
+        {/* Thumb Color */}
+        <div className="flex justify-between items-center my-2">
+          <span>Thumb Color</span>
+          <input
+            className="input_style"
+            type="color"
+            name="thumbColor"
+            id="thumbColor"
+            value={settings.thumbColor}
+            onChange={(e) => handleColorChange("thumbColor", e.target.value)}
           />
         </div>
         <div className="flex justify-between items-center my-2">
           <span>Scrollbar Width</span>
           <div className="flex justify-between items-center">
-            <button> - </button>
-            <button className="mx-2 read-only:"> 10px </button>
-            <button> + </button>
+            <button
+              onClick={() =>
+                handleSettingChange(
+                  "scrollbarWidth",
+                  settings.scrollbarWidth - 1
+                )
+              }
+            >
+              -
+            </button>
+            <button className="mx-2 read-only:">
+              {settings.scrollbarWidth}px
+            </button>
+            <button
+              onClick={() =>
+                handleSettingChange(
+                  "scrollbarWidth",
+                  settings.scrollbarWidth + 1
+                )
+              }
+            >
+              +
+            </button>
           </div>
         </div>
+
         <div className="flex justify-between items-center my-2">
           <span>Scrollbar Border Radius</span>
           <div className="flex justify-between items-center">
-            <button> - </button>
-            <button className="mx-2 read-only:"> 10px </button>
-            <button> + </button>
+            <button
+              onClick={() =>
+                handleSettingChange(
+                  "scrollbarBorderRadius",
+                  settings.scrollbarBorderRadius - 1
+                )
+              }
+            >
+              -
+            </button>
+            <button className="mx-2 read-only:">
+              {settings.scrollbarBorderRadius}px
+            </button>
+            <button
+              onClick={() =>
+                handleSettingChange(
+                  "scrollbarBorderRadius",
+                  settings.scrollbarBorderRadius + 1
+                )
+              }
+            >
+              +
+            </button>
           </div>
         </div>
+
         <div className="flex justify-between items-center my-2">
           <span>Thumb Border Width</span>
           <div className="flex justify-between items-center">
-            <button> - </button>
-            <button className="mx-2 read-only:"> 0px </button>
-            <button> + </button>
+            <button
+              onClick={() =>
+                handleSettingChange(
+                  "thumbBorderWidth",
+                  settings.thumbBorderWidth - 1
+                )
+              }
+            >
+              -
+            </button>
+            <button className="mx-2 read-only:">
+              {settings.thumbBorderWidth}px
+            </button>
+            <button
+              onClick={() =>
+                handleSettingChange(
+                  "thumbBorderWidth",
+                  settings.thumbBorderWidth + 1
+                )
+              }
+            >
+              +
+            </button>
           </div>
         </div>
+        {/* Thumb Border Color */}
         <div className="flex justify-between items-center my-2">
-          <span>Thumb Border Color Color</span>
+          <span>Thumb Border Color</span>
           <input
             className="input_style"
             type="color"
-            name="thumb-border"
-            id="thumb-border"
-            defaultValue="#232E33"
+            name="thumbBorderColor"
+            id="thumbBorderColor"
+            value={settings.thumbBorderColor}
+            onChange={(e) =>
+              handleColorChange("thumbBorderColor", e.target.value)
+            }
           />
         </div>
       </div>
 
-
       <div className="group relative my-10 mx-auto">
-        <button>
+        <button href="https://github.com/shaiadul/nextscroll">
           <svg
             stroke-linejoin="round"
             stroke-linecap="round"
