@@ -15,7 +15,7 @@ const Description = () => {
 
   return (
     <section
-      className={`lg:col-span-2 mb-5 px-2 h-[70vh] overflow-y-scroll section scrollbar`}
+      className={`lg:col-span-2 mb-5 px-2 h-[70vh] overflow-y-scroll section`}
     >
       <style jsx>{`
         .section {
