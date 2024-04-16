@@ -43,20 +43,16 @@ body {
   --sb-track-color: ${trackColor};
   --sb-thumb-color: ${thumbColor};
   --sb-size: ${scrollbarWidth}px;
-
   scrollbar-color: var(--sb-thumb-color) 
                    var(--sb-track-color);
 }
-
 body::-webkit-scrollbar {
   width: var(--sb-size);
 }
-
 body::-webkit-scrollbar-track {
   background: var(--sb-track-color);
   border-radius: ${scrollbarBorderRadius}px;
 }
-
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: ${scrollbarBorderRadius}px;

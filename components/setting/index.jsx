@@ -6,7 +6,6 @@ const SettingBar = () => {
   const { settings, setSettings } = useCode();
 
   const handleSettingChange = (name, value) => {
-    // Ensure the value is positive or zero for specific properties
     let validValue;
     switch (name) {
       case "scrollbarWidth":
