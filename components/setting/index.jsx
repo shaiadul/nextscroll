@@ -164,7 +164,7 @@ const SettingBar = () => {
       <div className="group relative my-10 mx-auto">
         <button href="https://github.com/shaiadul/nextscroll">
           <svg
-            stroke-linejoin="round"
+            strokeLinejoin="round"
             stroke-linecap="round"
             stroke-width="2"
             stroke="currentColor"
@@ -176,7 +176,7 @@ const SettingBar = () => {
           </svg>
         </button>
         <span className="absolute -top-1 left-[30%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 text-gray-700">
-          GitHub<span></span>
+          shaiadul<span></span>
         </span>
       </div>
     </div>
