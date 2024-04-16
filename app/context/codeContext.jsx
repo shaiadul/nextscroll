@@ -8,8 +8,8 @@ export const CodeProvider = ({ children }) => {
   const [settings, setSettings] = useState({
     thumbColor: "#43da86",
     trackColor: "#23769C",
-    scrollbarWidth: 50,
-    scrollbarBorderRadius: 20,
+    scrollbarWidth: 10,
+    scrollbarBorderRadius: 5,
     thumbBorderWidth: 0,
     thumbBorderColor: "#232E33",
   });
