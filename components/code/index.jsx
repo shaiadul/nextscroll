@@ -60,7 +60,7 @@ body::-webkit-scrollbar-thumb {
 }
           `}
         </pre>
-        <button className="cssbuttons-io mb-5" onClick={handleCopyClick}>
+        <button className="cssbuttons-io" onClick={handleCopyClick}>
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path fill="none" d="M0 0h24v24H0z"></path>
