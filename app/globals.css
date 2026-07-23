@@ -92,3 +92,12 @@ body {
 .cssbuttons-io:active {
   transform: scale(0.95);
 }
+
+/* Hide scrollbars for side panels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}

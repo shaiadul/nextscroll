@@ -122,7 +122,7 @@ module.exports = {
         </div>
 
         {/* Code Block Container */}
-        <div className="bg-slate-950/90 p-4 rounded-xl border border-slate-850 font-mono text-[11px] text-slate-300 overflow-y-auto overflow-x-auto flex-1 relative section min-h-0 select-text">
+        <div className="bg-slate-950/90 p-4 rounded-xl border border-slate-850 font-mono text-[11px] text-slate-300 overflow-y-auto overflow-x-auto flex-1 relative no-scrollbar min-h-0 select-text font-semibold">
           <pre className="my-0 whitespace-pre select-all selection:bg-teal-500/30" ref={codeRef}>
             {getCodeString()}
           </pre>

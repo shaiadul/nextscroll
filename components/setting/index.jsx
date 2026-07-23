@@ -102,7 +102,7 @@ const SettingBar = () => {
       </div>
 
       {/* Configurations Scroller Container */}
-      <div className="flex-1 overflow-y-auto section pr-1 space-y-4 min-h-0 py-1">
+      <div className="flex-1 overflow-y-auto no-scrollbar pr-1 space-y-4 min-h-0 py-1">
         {activeTab === "colors" && (
           <div className="space-y-3.5">
             {/* Track Color */}
